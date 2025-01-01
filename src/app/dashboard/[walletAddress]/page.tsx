@@ -6,7 +6,6 @@ import { useState } from "react";
 import { getContract } from "thirdweb";
 import { sepolia } from "thirdweb/chains";
 import { deployPublishedContract } from "thirdweb/deploys";
-
 import { useActiveAccount, useReadContract } from "thirdweb/react";
 
 export default function DashboardPage() {
@@ -101,22 +100,22 @@ const CreateCampaignModal = ({
         chain: sepolia,
         account: account!,
         contractId: "Crowdfunding",
-        contractParams: [
-          campaignName,
-          campaignDescription,
-          campaignGoal,
-          campaignDeadline,
-        ],
+        contractParams: {
+          _name: campaignName,
+          _description: campaignDescription,
+          _goal: campaignGoal,
+          _durationInDays: campaignDeadline, 
+        }, // Now an object with string keys
         publisher: "0x7EF00a99cc93333f6915109D2AB7f687f645fd99",
         version: "1.0.0",
       });
       alert("Contract deployed successfully!");
+      refetch();
     } catch (error) {
-      console.error(error);
+      console.error("Error deploying contract:", error);
     } finally {
       setIsDeployingContract(false);
       setIsModalOpen(false);
-      refetch;
     }
   };
 
@@ -128,7 +127,7 @@ const CreateCampaignModal = ({
     }
   };
 
-  const handleCampaignLengthhange = (value: number) => {
+  const handleCampaignLengthChange = (value: number) => {
     if (value < 1) {
       setCampaignDeadline(1);
     } else {
@@ -177,7 +176,7 @@ const CreateCampaignModal = ({
               type="number"
               value={campaignDeadline}
               onChange={(e) =>
-                handleCampaignLengthhange(parseInt(e.target.value))
+                handleCampaignLengthChange(parseInt(e.target.value))
               }
               className="mb-4 px-4 py-2 bg-slate-300 rounded-md"
             />
