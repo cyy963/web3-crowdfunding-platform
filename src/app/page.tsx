@@ -22,10 +22,10 @@ export default function Home() {
   });
 
   return (
-    <main className="mx-auto max-w-7xl px-4 mt-4 sm:px-6 lg:px-8">
+    <main className="mx-auto max-w-7xl mt-4 px-4 md:px-12">
       <div className="py-10">
-        <h1 className="text-4xl font-bold mb-4">Campaigns:</h1>
-        <div className="grid grid-cols-3 gap-4">
+        <h1 className="text-4xl font-medium mb-6">Campaigns</h1>
+        <div className="grid grid-cols-3 gap-12 max-md:flex max-md:flex-col">
           {!isLoadingCampaigns && campaigns && (
             campaigns.length > 0 ? (
               campaigns.map((campaign) => (

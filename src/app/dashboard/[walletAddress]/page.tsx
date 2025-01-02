@@ -32,17 +32,17 @@ export default function DashboardPage() {
   });
 
   return (
-    <div className="mx-auto max-w-7xl px-4 mt-16 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-4 mt-16 md:px-12">
       <div className="flex flex-row justify-between items-center mb-8">
-        <p className="text-4xl font-semibold">Dashboard</p>
+        <p className="text-4xl font-medium">My Campaigns:</p>
         <button
-          className="px-4 py-2 bg-blue-500 text-white rounded-md"
+          className="px-4 py-2 bg-green-600 text-white rounded-md"
           onClick={() => setIsModalOpen(true)}
         >
           Create Campaign
         </button>
       </div>
-      <p className="text-2xl font-semibold mb-4">My Campaigns:</p>
+      {/* <p className="text-2xl font-semibold mb-4">My Campaigns:</p> */}
       <div className="grid grid-cols-3 gap-4">
         {!isLoadingMyCampaigns &&
           (myCampaigns && myCampaigns.length > 0 ? (
