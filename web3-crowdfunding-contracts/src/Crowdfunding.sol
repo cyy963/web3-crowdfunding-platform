@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 contract Crowdfunding {
     string public name;
     string public description;
+    string public image; // Added image URL
     uint256 public goal;
     uint256 public deadline;
     address public owner;
@@ -45,13 +46,15 @@ contract Crowdfunding {
         address _owner,
         string memory _name,
         string memory _description,
+        string memory _image, // Added _image parameter
         uint256 _goal,
-        uint256 _duratyionInDays
+        uint256 _durationInDays
     ) {
         name = _name;
         description = _description;
+        image = _image; // Initialize the image URL
         goal = _goal;
-        deadline = block.timestamp + (_duratyionInDays * 1 days);
+        deadline = block.timestamp + (_durationInDays * 1 days);
         owner = _owner;
         state = CampaignState.Active;
     }

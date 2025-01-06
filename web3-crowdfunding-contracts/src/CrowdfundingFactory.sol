@@ -34,6 +34,7 @@ contract CrowdfundingFactory {
     function createCampaign(
         string memory _name,
         string memory _description,
+        string memory _image,
         uint256 _goal,
         uint256 _durationInDays
     ) external notPaused {
@@ -41,6 +42,7 @@ contract CrowdfundingFactory {
             msg.sender,
             _name,
             _description,
+            _image,
             _goal,
             _durationInDays
         );
