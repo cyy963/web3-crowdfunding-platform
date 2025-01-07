@@ -44,7 +44,7 @@ export default function DashboardPage() {
         </button>
       </div>
       {/* <p className="text-2xl font-semibold mb-4">My Campaigns:</p> */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-12 max-md:flex max-md:flex-col pb-16">
         {!isLoadingMyCampaigns &&
           (myCampaigns && myCampaigns.length > 0 ? (
             myCampaigns.map((campaign, index) => (
