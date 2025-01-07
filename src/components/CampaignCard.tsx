@@ -77,7 +77,7 @@ export const CampaignCard: React.FC<CampaignCardProps> = ({
 
   return (
     <Link href={`/campaign/${campaignAddress}`} passHref={true}>
-      <div className="sm:w-[300px] w-full  rounded-[15px]">
+      <div className="sm:min-w-[250px] sm:max-w-[300px] w-full  rounded-[15px]">
         <img
           src={
             campaignImage ||
