@@ -23,8 +23,8 @@ export default function Home() {
 
   return (
     <main className="mx-auto max-w-7xl mt-4 px-4 md:px-12">
-      <div className="py-10">
-        <h1 className="text-4xl font-medium mb-6">Campaigns</h1>
+      
+        <h1 className="text-4xl font-medium py-14">Fundraisers</h1>
         <div className="grid grid-cols-3 gap-12 max-md:flex max-md:flex-col">
           {!isLoadingCampaigns && campaigns && (
             campaigns.length > 0 ? (
@@ -39,7 +39,7 @@ export default function Home() {
             )
           )}
         </div>
-      </div>
+      
     </main>
   );
 }

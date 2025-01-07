@@ -1,6 +1,7 @@
 "use client";
 import { client } from "@/app/client";
 import { CROWDFUNDING_FACTORY } from "@/app/constants/contracts";
+import { CampaignCard } from "@/components/CampaignCard";
 import { MyCampaignCard } from "@/components/MyCampaignCard";
 import { useState } from "react";
 import { getContract } from "thirdweb";
@@ -32,14 +33,14 @@ export default function DashboardPage() {
   });
 
   return (
-    <div className="mx-auto max-w-7xl px-4 mt-16 md:px-12">
-      <div className="flex flex-row justify-between items-center mb-8">
-        <p className="text-4xl font-medium">My Campaigns:</p>
+    <div className="mx-auto max-w-7xl mt-4 px-4 md:px-12">
+      <div className="flex flex-row justify-between items-center py-14">
+        <h1 className="text-4xl font-medium">My Fundraisers</h1>
         <button
           className="px-4 py-2 bg-green-600 text-white rounded-md"
           onClick={() => setIsModalOpen(true)}
         >
-          Create Campaign
+          Create Fundraiser
         </button>
       </div>
       {/* <p className="text-2xl font-semibold mb-4">My Campaigns:</p> */}
@@ -47,9 +48,9 @@ export default function DashboardPage() {
         {!isLoadingMyCampaigns &&
           (myCampaigns && myCampaigns.length > 0 ? (
             myCampaigns.map((campaign, index) => (
-              <MyCampaignCard
+              <CampaignCard
                 key={index}
-                contractAddress={campaign.campaignAddress}
+                campaignAddress={campaign.campaignAddress}
               />
             ))
           ) : (
@@ -79,8 +80,9 @@ const CreateCampaignModal = ({
   const account = useActiveAccount();
   const [isDeployingContract, setIsDeployingContract] =
     useState<boolean>(false);
-  const [campaignName, setCampaignName] = useState<string>("test");
+  const [campaignName, setCampaignName] = useState<string>("");
   const [campaignDescription, setCampaignDescription] = useState<string>("");
+  const [campaignImage, setCampaignImage] = useState<string>("");
   const [campaignGoal, setCampaignGoal] = useState<number>(1);
   const [campaignDeadline, setCampaignDeadline] = useState<number>(1);
 
@@ -89,6 +91,7 @@ const CreateCampaignModal = ({
     console.log({
       campaignName,
       campaignDescription,
+      campaignImage,
       campaignGoal,
       campaignDeadline,
     });
@@ -103,11 +106,12 @@ const CreateCampaignModal = ({
         contractParams: {
           _name: campaignName,
           _description: campaignDescription,
+          _image: campaignImage,
           _goal: campaignGoal,
-          _durationInDays: campaignDeadline, 
+          _durationInDays: campaignDeadline,
         }, // Now an object with string keys
         publisher: "0x7EF00a99cc93333f6915109D2AB7f687f645fd99",
-        version: "1.0.0",
+        version: "1.0.1",
       });
       alert("Contract deployed successfully!");
       refetch();
@@ -156,6 +160,7 @@ const CreateCampaignModal = ({
             placeholder="Campaign Name"
             className="mb-4 px-4 py-2 bg-slate-300 rounded-md"
           />
+
           <label>Campaign Description:</label>
           <textarea
             value={campaignDescription}
@@ -163,6 +168,15 @@ const CreateCampaignModal = ({
             placeholder="Campaign Description"
             className="mb-4 px-4 py-2 bg-slate-300 rounded-md"
           ></textarea>
+
+          <label>Campaign Image:</label>
+          <textarea
+            value={campaignImage}
+            onChange={(e) => setCampaignImage(e.target.value)}
+            placeholder="Campaign Image"
+            className="mb-4 px-4 py-2 bg-slate-300 rounded-md"
+          ></textarea>
+
           <label>Campaign Goal:</label>
           <input
             type="number"
@@ -170,6 +184,7 @@ const CreateCampaignModal = ({
             onChange={(e) => handleCampaignGoal(parseInt(e.target.value))}
             className="mb-4 px-4 py-2 bg-slate-300 rounded-md"
           />
+
           <label>{`Campaign Length (Days)`}</label>
           <div className="flex space-x-4">
             <input
