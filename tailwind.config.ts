@@ -11,6 +11,11 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-kanit)", "sans-serif"],
       },
+      colors: {
+        green:{
+          100: "rgb(0, 128, 68)" 
+        }
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

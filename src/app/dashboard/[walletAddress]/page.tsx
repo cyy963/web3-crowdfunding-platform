@@ -37,7 +37,7 @@ export default function DashboardPage() {
       <div className="flex flex-row justify-between items-center py-14">
         <h1 className="text-4xl font-medium">My Fundraisers</h1>
         <button
-          className="px-4 py-2 bg-green-600 text-white rounded-md"
+          className="px-4 py-2 bg-green-100 text-white rounded-md"
           onClick={() => setIsModalOpen(true)}
         >
           Create Fundraiser
@@ -143,7 +143,7 @@ const CreateCampaignModal = ({
     <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center backdrop-blur-md">
       <div className="w-1/2 bg-slate-100 p-6 rounded-md">
         <div className="flex justify-between items-center mb-4">
-          <p className="text-lg font-semibold">Create a Campaign</p>
+          <p className="text-lg font-semibold">Create a Fundraiser</p>
           <button
             className="text-sm px-4 py-2 bg-slate-600 text-white rounded-md"
             onClick={() => setIsModalOpen(false)}
@@ -152,37 +152,37 @@ const CreateCampaignModal = ({
           </button>
         </div>
         <div className="flex flex-col">
-          <label>Campaign Name:</label>
+          <label>Fundraiser Name:</label>
           <input
             type="text"
             value={campaignName}
             onChange={(e) => setCampaignName(e.target.value)}
-            placeholder="Campaign Name"
-            className="mb-4 px-4 py-2 bg-slate-300 rounded-md"
+            placeholder="Fundraiser Name"
+            className="mb-4 px-4 py-2 bg-slate-300 rounded-md focus:outline-none"
           />
 
-          <label>Campaign Description:</label>
+          <label>Fundraiser Description:</label>
           <textarea
             value={campaignDescription}
             onChange={(e) => setCampaignDescription(e.target.value)}
-            placeholder="Campaign Description"
-            className="mb-4 px-4 py-2 bg-slate-300 rounded-md"
+            placeholder="Fundraiser Description"
+            className="mb-4 px-4 py-2 bg-slate-300 rounded-md resize-none focus:outline-none"
           ></textarea>
 
-          <label>Campaign Image:</label>
-          <textarea
+          <label>Fundraiser Image:</label>
+          <input
             value={campaignImage}
             onChange={(e) => setCampaignImage(e.target.value)}
-            placeholder="Campaign Image"
-            className="mb-4 px-4 py-2 bg-slate-300 rounded-md"
-          ></textarea>
+            placeholder="Image URL"
+            className="mb-4 px-4 py-2 bg-slate-300 rounded-md focus:outline-none"
+          ></input>
 
-          <label>Campaign Goal:</label>
+          <label>Fundraiser Goal:</label>
           <input
             type="number"
             value={campaignGoal}
             onChange={(e) => handleCampaignGoal(parseInt(e.target.value))}
-            className="mb-4 px-4 py-2 bg-slate-300 rounded-md"
+            className="mb-4 px-4 py-2 bg-slate-300 rounded-md focus:outline-none"
           />
 
           <label>{`Campaign Length (Days)`}</label>
@@ -193,7 +193,7 @@ const CreateCampaignModal = ({
               onChange={(e) =>
                 handleCampaignLengthChange(parseInt(e.target.value))
               }
-              className="mb-4 px-4 py-2 bg-slate-300 rounded-md"
+              className="mb-4 px-4 py-2 bg-slate-300 rounded-md focus:outline-none"
             />
           </div>
 

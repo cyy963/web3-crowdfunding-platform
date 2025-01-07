@@ -17,9 +17,9 @@ const kanit = Kanit({
 });
 
 export const metadata: Metadata = {
-  title: "thirdweb SDK + Next starter",
+  title: "Web3 Crowdfunding Platform",
   description:
-    "Starter template for using thirdweb SDK with Next.js App router",
+    "Using blockchain and smart contracts to facilitate smooth and secure transactions",
 };
 
 export default function RootLayout({

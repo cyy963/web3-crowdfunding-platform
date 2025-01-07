@@ -159,47 +159,52 @@ export default function CampaignPage() {
               {isEditing ? "Done" : "Edit"}
             </button>
             <button
-              className="ml-2 px-4 py-2 bg-green-500 text-white rounded-md"
+              className={`ml-2 px-4 py-2 ${
+                status === 1
+                  ? "bg-green-100 text-green-700"
+                  : "bg-gray-300 text-gray-500"
+              } rounded-md`}
               onClick={handleWithdraw}
+              
             >
               Withdraw Funds
             </button>
           </div>
         )}
       </div>
-      <div className="my-4">
-        <p className="text-lg font-semibold">Description:</p>
-        <p>{description}</p>
-      </div>
-      <div className="my-4">
+      <div className="my-7">
         <img
           src={
             image ||
             "https://www.raisinghealth.org.uk/images/general-fr-images/fundraising_cropped-500x353.jpg"
           }
           alt="campaign-image"
-          className="w-2/3 h-[250px] object-cover rounded-[15px]"
+          className="w-2/4 h-[250px] object-cover rounded-[15px]"
         />
       </div>
+        <div className="my-4">
+          {/* <p className="text-lg font-semibold">Description</p> */}
+          <p>{description}</p>
+        </div>
       <div className="mb-4">
-        <p className="text-lg font-semibold">Deadline</p>
+        <p className="text-lg font-semibold py-1">Deadline</p>
         {!isLoadingDeadline && <p>{deadlineDate.toDateString()}</p>}
       </div>
       {!isLoadingBalance && (
         <div className="mb-4">
-          <p className="text-lg font-semibold">
-            Campaign Goal: ${goal?.toString()}
+          <p className="text-lg font-semibold py-2">
+            Fundraiser Goal: ${goal?.toString()}
           </p>
-          <div className="relative w-full h-6 bg-gray-200 rounded-full dark:bg-gray-700">
+          <div className="relative w-full h-6 bg-progress-bar-bg rounded-full">
             <div
-              className="h-6 bg-blue-600 rounded-full dark:bg-blue-500 text-right"
+              className="h-6 bg-progress-bar rounded-full text-right"
               style={{ width: `${balancePercentage?.toString()}%` }}
             >
-              <p className="text-white dark:text-white text-xs p-1">
+              <p className="text-white dark:text-white text-xs p-1 px-2">
                 ${balance?.toString()}
               </p>
             </div>
-            <p className="absolute top-0 right-0 text-white dark:text-white text-xs p-1">
+            <p className="absolute top-0 right-0 text-white dark:text-white text-xs p-1 px-2">
               {balancePercentage >= 100
                 ? ""
                 : `${balancePercentage?.toString()}%`}
@@ -208,8 +213,8 @@ export default function CampaignPage() {
         </div>
       )}
       <div>
-        <p className="text-lg font-semibold">Tiers:</p>
-        <div className="grid grid-cols-3 gap-4">
+        <p className="text-lg font-semibold py-2">Tiers:</p>
+        <div className="grid grid-cols-3 gap-4 max-md:flex max-md:flex-col">
           {isLoadingTiers ? (
             <p>Loading...</p>
           ) : tiers && tiers.length > 0 ? (
