@@ -41,7 +41,7 @@ This is a Web3 Crowdfunding Platform that Empowers fundraising efforts with tran
 
 👉 **Refund the funds back to the donors crypto wallets if the goal has not been met before the deadline!
 
-👉 **Completely Responsive**: Consistent access and optimal viewing on any device with a fully responsive design that adapts to different screen sizes.
+👉 **Completely Responsive**, consistent access and optimal viewing on any device with a fully responsive design that adapts to different screen sizes.
 
 ## <a name="quick-start">🤸 Quick Start</a>
 
