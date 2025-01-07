@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
     <main className="w-full">
-      <div className="mx-auto max-w-7xl mt-4 px-4 md:px-12 overflow-hidden">
+      <div className="mx-auto max-w-7xl mt-4 px-4 md:px-12">
         <h1 className="text-4xl font-medium py-14">Fundraisers</h1>
         <div className="grid grid-cols-3 gap-12 max-md:flex max-md:flex-col">
           {!isLoadingCampaigns &&
