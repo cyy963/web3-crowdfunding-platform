@@ -77,32 +77,32 @@ export const CampaignCard: React.FC<CampaignCardProps> = ({
 
   return (
     <Link href={`/campaign/${campaignAddress}`} passHref={true}>
-      <div className="sm:min-w-[250px] sm:max-w-[300px] w-full  rounded-[15px]">
+      <div className="sm:min-w-[220px] w-full rounded-[15px] bg-[#1c1c24] cursor-pointer">
         <img
           src={
             campaignImage ||
             "https://www.raisinghealth.org.uk/images/general-fr-images/fundraising_cropped-500x353.jpg"
           }
           alt="campaign-image"
-          className="w-full h-[170px] object-cover rounded-[15px]"
+          className="w-full h-[220px] object-cover rounded-[15px]"
         />
 
-        <div className="flex flex-col px-4 py-3">
-          <h5 className="text-2xl font-medium tracking-tight truncate">
+        <div className="flex flex-col p-7">
+          <h5 className="text-2xl font-normal tracking-tight truncate">
             {campaignName}
           </h5>
-          <p className="font-normal text-gray-700 dark:text-gray-400 truncate pb-4">
+          <p className="font-normal text-[#808191] truncate pb-4 mt-[5px] ">
             {campaignDescription}
           </p>
           {!isLoadingBalance && (
-            <div className="mb-4">
+            <div className="my-4">
               <div className="relative w-full h-6 bg-progress-bar-bg rounded-full">
                 <div
                   className="h-6 bg-progress-bar rounded-full text-right"
                   style={{ width: `${balancePercentage?.toString()}%` }}
                 >
                   <p className="text-white text-xs p-1 px-2">
-                    ${balance?.toString()} raised
+                    ${balance?.toString()}
                   </p>
                 </div>
               </div>

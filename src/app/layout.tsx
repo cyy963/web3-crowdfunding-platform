@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${kanit.variable}`}>
-      <body className="bg-slate-100 text-slate-700 font-sans">
+      <body className="bg-black-100 font-sans text-white">
         <ThirdwebProvider>
           <Navbar />
           {children}

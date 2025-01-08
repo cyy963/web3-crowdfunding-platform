@@ -135,9 +135,9 @@ export default function CampaignPage() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-2 mt-4 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl px-2 mt-4 sm:px-6 lg:px-8 pb-10">
       <div className="flex flex-row justify-between items-center pt-14">
-        {!isLoadingName && <p className="text-4xl font-semibold">{name}</p>}
+        {!isLoadingName && <p className="text-4xl font-medium">{name}</p>}
         {owner === account?.address && (
           <div className="flex flex-row">
             {isEditing && (
@@ -187,12 +187,12 @@ export default function CampaignPage() {
           <p>{description}</p>
         </div>
       <div className="mb-4">
-        <p className="text-lg font-semibold py-1">Deadline</p>
+        <p className="text-lg font-medium py-1">Deadline</p>
         {!isLoadingDeadline && <p>{deadlineDate.toDateString()}</p>}
       </div>
       {!isLoadingBalance && (
         <div className="mb-4">
-          <p className="text-lg font-semibold py-2">
+          <p className="text-lg font-medium py-2">
             Fundraiser Goal: ${goal?.toString()}
           </p>
           <div className="relative w-full h-6 bg-progress-bar-bg rounded-full">
@@ -213,7 +213,7 @@ export default function CampaignPage() {
         </div>
       )}
       <div>
-        <p className="text-lg font-semibold py-2">Tiers:</p>
+        <p className="text-lg font-medium py-2">Tiers:</p>
         <div className="grid grid-cols-3 gap-4 max-md:flex max-md:flex-col">
           {isLoadingTiers ? (
             <p>Loading...</p>
@@ -233,7 +233,7 @@ export default function CampaignPage() {
           {isEditing && (
             // Add a button card with text centered in the middle
             <button
-              className="max-w-sm flex flex-col text-center justify-center items-center font-semibold p-6 bg-blue-500 text-white border border-slate-100 rounded-lg shadow"
+              className="max-w-[300px] flex flex-col text-center justify-center items-center font-normal p-6 bg-blue-500 text-white border-slate-100 rounded-lg shadow"
               onClick={() => setIsModalOpen(true)}
             >
               + Add Tier
@@ -265,8 +265,8 @@ const CreateCampaignModal = ({
   const [tierAmount, setTierAmount] = useState<bigint>(1n);
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center backdrop-blur-md">
-      <div className="w-1/2 bg-slate-100 p-6 rounded-md">
+    <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center backdrop-blur-md pb-10">
+      <div className="w-1/2 bg-black-100 p-6 rounded-md">
         <div className="flex justify-between items-center mb-4">
           <p className="text-lg font-semibold">Create a Funding Tier</p>
           <button

@@ -10,7 +10,7 @@ const Navbar = () => {
   const account = useActiveAccount();
 
   return (
-    <nav className="bg-slate-100 border-b-2 border-b-slate-300 flex justify-center h-[8.5dvh]">
+    <nav className="flex justify-center h-[8.5dvh]">
       <div className="flex w-[1120px] justify-between w-85 py-2 px-4 md:px-8">
         <div className="flex flex-1 items-center gap-4 pr-2">
           <Link href={"/"}>
@@ -25,13 +25,13 @@ const Navbar = () => {
             />
           </Link>
           <Link href={"/"}>
-            <p className="rounded-md font-normal px-3 py-2 text-xl text-slate-700 hover:bg-slate-200 transition">
+            <p className="rounded-md font-normal px-3 py-2 text-xl text-white hover:bg-black-300 transition">
               Donate
             </p>
           </Link>
           {account && (
             <Link href={`/dashboard/${account?.address}`}>
-              <p className="rounded-md font-normal px-3 py-2 text-xl text-slate-700 hover:bg-slate-200 transition">
+              <p className="rounded-md font-normal px-3 py-2 text-xl text-white hover:bg-black-300 transition">
                 My Fundraisers
               </p>
             </Link>
@@ -43,7 +43,7 @@ const Navbar = () => {
             theme={lightTheme()}
             connectButton={{
               style: {
-                backgroundColor: "rgb(0, 128, 68)",
+                backgroundColor: "rgb(29, 192, 113)",
               },
             }}
             detailsButton={{

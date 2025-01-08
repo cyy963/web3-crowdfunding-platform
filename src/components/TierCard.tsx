@@ -21,15 +21,15 @@ export const TierCard: React.FC<TierCardProps> = ({
   isEditing,
 }) => {
   return (
-    <div className="max-w-[300px] flex min-w-[245px] flex-col justify-between p-6 bg-white border border-slate-100 rounded-lg shadow">
+    <div className="max-w-[300px] flex min-w-[245px] flex-col justify-between p-6 bg-black-200 border-slate-100 rounded-lg shadow">
       <div>
         <div className="flex flex-row justify-around items-center pb-4">
-          <p className="text-2xl font-semibold">{tier.name}</p>
-          <p className="text-2xl font-semibold">${tier.amount.toString()}</p>
+          <p className="text-2xl font-medium">{tier.name}</p>
+          <p className="text-2xl font-medium">${tier.amount.toString()}</p>
         </div>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <p className="text-base font-medium">
+        <p className="text-base font-normal">
           Total Backers: {tier.backers.toString()}
         </p>
         <TransactionButton
@@ -45,12 +45,12 @@ export const TierCard: React.FC<TierCardProps> = ({
           onTransactionConfirmed={async () => alert("Funded successfully!")}
           style={{
             marginTop: "1rem",
-            backgroundColor: "rgb(0, 128, 68)",
+            backgroundColor: "rgb(29, 192, 113)",
             color: "white",
-            padding: "0.5rem 0.25rem",
+            padding: "0.5rem 0.5rem",
             borderRadius: "0.375rem",
             cursor: "pointer",
-            width: "120px",
+            
           }}
         >
           Donate
@@ -69,7 +69,7 @@ export const TierCard: React.FC<TierCardProps> = ({
           onTransactionConfirmed={async () => alert("Removed successfully!")}
           style={{
             marginTop: "1rem",
-            backgroundColor: "red",
+            backgroundColor: "#f54281",
             color: "white",
             padding: "0.5rem 0.5rem",
             borderRadius: "0.375rem",

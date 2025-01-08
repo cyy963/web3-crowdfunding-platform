@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="fixed bottom-0 w-[100vw] h-auto bg-purple-400 p-4 flex items-center justify-center">
+    <div className="fixed bottom-0 w-[100vw] h-auto bg-purple-700 p-4 flex items-center justify-center">
       <p className="font-normal text-white text-xl max-md:text-xs">
         To test the features, connect your metamask wallet and switch to the
         sepolia testnet and request free test tokens {' '}

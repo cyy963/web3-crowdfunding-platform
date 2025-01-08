@@ -2,7 +2,6 @@
 import { client } from "@/app/client";
 import { CROWDFUNDING_FACTORY } from "@/app/constants/contracts";
 import { CampaignCard } from "@/components/CampaignCard";
-import { MyCampaignCard } from "@/components/MyCampaignCard";
 import { useState } from "react";
 import { getContract } from "thirdweb";
 import { sepolia } from "thirdweb/chains";
@@ -40,7 +39,7 @@ export default function DashboardPage() {
           className="px-4 py-2 bg-green-100 text-white rounded-md"
           onClick={() => setIsModalOpen(true)}
         >
-          Create Fundraiser
+          Create a Fundraiser
         </button>
       </div>
       {/* <p className="text-2xl font-semibold mb-4">My Campaigns:</p> */}
@@ -140,10 +139,10 @@ const CreateCampaignModal = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center backdrop-blur-md">
-      <div className="w-1/2 bg-slate-100 p-6 rounded-md">
+    <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center backdrop-blur-md ">
+      <div className="w-1/2 bg-black-200 p-6 rounded-md border border-black-300">
         <div className="flex justify-between items-center mb-4">
-          <p className="text-lg font-semibold">Create a Fundraiser</p>
+          <p className="text-lg font-medium">Create Fundraiser</p>
           <button
             className="text-sm px-4 py-2 bg-slate-600 text-white rounded-md"
             onClick={() => setIsModalOpen(false)}
@@ -152,40 +151,45 @@ const CreateCampaignModal = ({
           </button>
         </div>
         <div className="flex flex-col">
-          <label>Fundraiser Name:</label>
+          <label>Fundraiser Name *</label>
           <input
             type="text"
             value={campaignName}
             onChange={(e) => setCampaignName(e.target.value)}
-            placeholder="Fundraiser Name"
-            className="mb-4 px-4 py-2 bg-slate-300 rounded-md focus:outline-none"
+            placeholder="Write a title"
+            className="mb-4 px-4 py-2 mt-3 border-black-300 border bg-transparent font-light rounded-md focus:outline-none"
           />
 
-          <label>Fundraiser Description:</label>
+          <label>Fundraiser Description *</label>
           <textarea
             value={campaignDescription}
             onChange={(e) => setCampaignDescription(e.target.value)}
-            placeholder="Fundraiser Description"
-            className="mb-4 px-4 py-2 bg-slate-300 rounded-md resize-none focus:outline-none"
+            placeholder="Write your story"
+            className="mb-4 px-4 py-2 mt-3 border-black-300 border bg-transparent font-light rounded-md resize-none focus:outline-none"
           ></textarea>
 
-          <label>Fundraiser Image:</label>
+          <label>Fundraiser Image *</label>
           <input
             value={campaignImage}
             onChange={(e) => setCampaignImage(e.target.value)}
             placeholder="Image URL"
-            className="mb-4 px-4 py-2 bg-slate-300 rounded-md focus:outline-none"
+            className="mb-4 px-4 py-2 mt-3 border-black-300 border bg-transparent font-light rounded-md focus:outline-none"
           ></input>
 
-          <label>Fundraiser Goal:</label>
-          <input
-            type="number"
-            value={campaignGoal}
-            onChange={(e) => handleCampaignGoal(parseInt(e.target.value))}
-            className="mb-4 px-4 py-2 bg-slate-300 rounded-md focus:outline-none"
-          />
+          <div className="mb-4">
+            <label>Fundraiser Goal *</label>
+            <div className="flex items-center mt-3 border border-black-300 rounded-md">
+              <span className="px-3 text-white">$</span>
+              <input
+                type="number"
+                value={campaignGoal}
+                onChange={(e) => handleCampaignGoal(parseInt(e.target.value))}
+                className="w-full py-2 bg-transparent font-light focus:outline-none"
+              />
+            </div>
+          </div>
 
-          <label>{`Campaign Length (Days)`}</label>
+          <label>{`Fundraiser Length (Days) *`}</label>
           <div className="flex space-x-4">
             <input
               type="number"
@@ -193,15 +197,17 @@ const CreateCampaignModal = ({
               onChange={(e) =>
                 handleCampaignLengthChange(parseInt(e.target.value))
               }
-              className="mb-4 px-4 py-2 bg-slate-300 rounded-md focus:outline-none"
+              className="mb-4 px-4 py-2 mt-3 border-black-300 border bg-transparent rounded-md focus:outline-none"
             />
           </div>
 
           <button
-            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
+            className="mt-4 px-4 py-2 bg-green-100 text-white rounded-md"
             onClick={handleDeployContract}
           >
-            {isDeployingContract ? "Creating Campaign..." : "Create Campaign"}
+            {isDeployingContract
+              ? "Creating Fundraiser..."
+              : "Create Fundraiser"}
           </button>
         </div>
       </div>
