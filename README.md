@@ -33,7 +33,7 @@ This is a Web3 Crowdfunding Platform that Empowers fundraising efforts with tran
 
 ## <a name="features">🔋 Features</a>
 
-👉 **Create fundraisers on the blockchain through smart contracts!
+👉 **Create fundraisers on the blockchain through smart contract deployment on Thirdweb!
 
 👉 **Create your own funding tiers!
 
